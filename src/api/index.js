@@ -1,15 +1,16 @@
 const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/";
-const cohortName = "2206-FTB-ET-WEB-FT/";
 
-export const fectchAllRoutines = async () => {
+
+export const fetchAllRoutines = async () => {
   try {
-    const response = await fetch(`${BASE_URL + cohortName}routines/`);
+    const response = await fetch(`${BASE_URL}api/routines/`);
     const result = await response.json();
-    const routinesData = result.data.routines
-    
-    return routinesData;
+    // const routinesData = result.data.routines
+    console.log(result, 'line 9')
+    return result;
   } catch (error) {
     console.error(error, "something broke");
   }
+
 };
 // demo code from previous project need to update

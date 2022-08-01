@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { fectchAllRoutines } from "../api";
+import { fetchAllRoutines } from "../api";
 
 const App = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
-};
+const [allRoutines, setAllRoutines] = useState([])
+  
+
 
 useEffect(() => {
-  fectchAllRoutines()
+  fetchAllRoutines()
     .then((routines) => {
-      setAllPosts(posts);
+      setAllRoutines(routines);
     })
     .catch((error) => {
       console.error(error, "Something broke");
     });
-}, []);
-
+}, []); 
+console.log(allRoutines, 'line 19')
+};
 export default App;
