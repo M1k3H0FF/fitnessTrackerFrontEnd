@@ -1,9 +1,9 @@
 const BASE_URL = "https://strangers-things.herokuapp.com/api/";
 const cohortName = "2206-FTB-ET-WEB-FT/";
 
-export const fectchAllPosts = async () => {
+export const fetchAllRoutines = async () => {
   try {
-    const response = await fetch(`${BASE_URL + cohortName}posts/`);
+    const response = await fetch(`${BASE_URL}posts/`);
     const result = await response.json();
     const postsData = result.data.posts;
 
