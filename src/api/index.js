@@ -5,7 +5,6 @@ export const fetchAllRoutines = async () => {
     const response = await fetch(`${BASE_URL}api/routines/`);
     const result = await response.json();
     // const routinesData = result.data.routines
-    console.log(result, "line 9");
     return result;
   } catch (error) {
     console.error(error, "something broke");
