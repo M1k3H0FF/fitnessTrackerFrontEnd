@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { fetchAllRoutines } from "../api";
+import { Routines } from "./";
 
 const App = () => {
-  return (
+  return(
     <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+<Routes>
+  <Route path={'/login'}
+  />;
+
+  <Route path={'/register'}
+  
+  />;
+
+
+    <Route
+  path={'/routines'}
+  element={<Routines />}/>
+
+  </Routes>
+  </div>
+  )
 };
 
 export default App;
