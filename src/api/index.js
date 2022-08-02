@@ -1,13 +1,12 @@
-const BASE_URL = "https://strangers-things.herokuapp.com/api/";
-const cohortName = "2206-FTB-ET-WEB-FT/";
+const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/";
 
 export const fetchAllRoutines = async () => {
   try {
-    const response = await fetch(`${BASE_URL}posts/`);
+    const response = await fetch(`${BASE_URL}api/routines/`);
     const result = await response.json();
-    const postsData = result.data.posts;
-
-    return postsData;
+    // const routinesData = result.data.routines
+    console.log(result, "line 9");
+    return result;
   } catch (error) {
     console.error(error, "something broke");
   }

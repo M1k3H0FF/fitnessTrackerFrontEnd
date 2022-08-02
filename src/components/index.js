@@ -1,2 +1,2 @@
-export {default as App} from './App'
-export {default as Routines} from "./Routines";
+export { default as App } from "./App";
+export { default as Routines } from "./Routines";

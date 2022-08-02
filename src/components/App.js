@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import {Routines,} from "./";
-
-
+import { fetchAllRoutines } from "../api";
+import { Routines } from "./";
 
 const App = () => {
   return (
     <div>
-      <Routines />
       <Routes>
-        <Route path="/" element={<Routines />} />
+        <Route path={"/login"} />;
+        <Route path={"/register"} />;
+        <Route path={"/routines"} element={<Routines />} />
       </Routes>
-  </div>
+    </div>
   );
 };
 
