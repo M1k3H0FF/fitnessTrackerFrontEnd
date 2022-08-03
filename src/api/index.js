@@ -90,7 +90,28 @@ export async function getAllActivities () {
     }
  
 }
-
+export async function updateActivity(name, description, act_ID){
+  try{
+    console.log(act_ID, 'line 95')
+    const token = localStorage.getItem("token")
+    const response = await fetch(`${BASE_URL}api/activities/${act_ID}`,
+     {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      name: name,
+      description: description
+    }),
+  });
+  const result = await response.json()
+  return result;
+    } catch (error){
+      console.error(error, "your updateActivity function is breaking");
+    }
+  }
 
 
 // demo code from previous project need to update

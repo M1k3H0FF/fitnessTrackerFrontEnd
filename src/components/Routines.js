@@ -40,6 +40,9 @@ function Routines() {
           <b>Activity:</b>
           {displayActivities}
         </p>
+        <p><b>Goal:</b>
+            {routineGoal}
+        </p>
       </div>
     );
   });
