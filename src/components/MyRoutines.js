@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAllRoutines } from "../api";
+import { fetchAllRoutines, updateRoutine } from "../api";
 
 const MyRoutines = () => {
   const [allRoutines, setAllRoutines] = useState([]);
@@ -8,12 +8,12 @@ const MyRoutines = () => {
   const [goal, setGoal] = useState('');
 
   const handleOnChange =(event) => {
-    const changed = event.target.id
-    if (changed === 'name'){
+    const changed = event.target.name
+    if (changed == 'name'){
         setRoutineName(event.target.value)
         console.log(name, 'name')
     }
-    if (changed === 'goal') {
+    if (changed == 'goal') {
         setGoal(event.target.value)
         console.log(goal, "goal")
     }
@@ -21,7 +21,7 @@ const MyRoutines = () => {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
-    const activityInfo = await makeNewActivity(name, description);
+    const routineInfo = await updateRoutine(name, goal, routineID);
     if(activityInfo && activityInfo.message){
         alert(activityInfo.message)
     }
@@ -95,7 +95,7 @@ const handleSubmit = async (event) => {
                 <div>
                 <label>Name: </label>
                 <input 
-                    id='name'
+                    name='name'
                     onChange={handleOnChange}
                     placeholder="whatcha up to?"
                     value={name}
@@ -105,7 +105,7 @@ const handleSubmit = async (event) => {
                 <div>
                   <label>Goal:  </label>
                 <input
-                    id='goal'
+                    name='goal'
                     onChange={handleOnChange}
                     placeholder="why?"
                     value={goal}

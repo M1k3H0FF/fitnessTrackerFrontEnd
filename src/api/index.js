@@ -100,7 +100,7 @@ export async function updateActivity(name, description, act_ID){
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify({
       name: name,
@@ -116,13 +116,19 @@ export async function updateActivity(name, description, act_ID){
 
   export async function updateRoutine(name, goal, routineID){
     try{
+      const token = localStorage.getItem("token")
       const response = await fetch(`${BASE_URL}api/routines/${routineID}`, {
   method: "PATCH",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
   body: JSON.stringify({
     name: name,
     goal: goal
   })
-}) const result = await response.json()
+});
+  const result = await response.json()
   return result
     } catch error {
       console.log(error, "your updateRoutine is breaking")
