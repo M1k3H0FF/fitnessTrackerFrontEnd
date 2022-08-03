@@ -21,7 +21,10 @@ const NewActivities = () =>{
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        makeNewActivity(name, description);
+        const activityInfo = await makeNewActivity(name, description);
+        if(activityInfo && activityInfo.message){
+            alert(activityInfo.message)
+        }
         setName("");
         setDescription('');
     };

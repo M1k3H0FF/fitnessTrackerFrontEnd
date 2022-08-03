@@ -1,5 +1,6 @@
 const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/";
 
+
 export const fetchAllRoutines = async () => {
   try {
     const response = await fetch(`${BASE_URL}api/routines/`);
@@ -76,7 +77,7 @@ export async function makeNewActivity(name, description){
     }
 };
 
-export async function getAllActivities () {
+export async function getAllActivities() {
   try{ 
   const response = await fetch(`${BASE_URL}api/activities`, {
   headers: {
@@ -90,6 +91,24 @@ export async function getAllActivities () {
     }
  
 }
+
+export async function updateActivity(name, description, act_ID){
+try{
+  const response = await fetch(`${BASE_URL}api/activities/${act_ID}`, {
+  method: "PATCH",
+  body: JSON.stringify({
+    name: name,
+    description: description
+  })
+})
+const result = await response.json()
+return result;
+  } catch (error){
+    console.error(error, "your updateActivities function is breaking");
+  }
+}
+
+
 
 
 
