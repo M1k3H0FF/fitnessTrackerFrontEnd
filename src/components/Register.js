@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { registerUser } from "../api";
 
 
-const Register = ({ setIsRegistered }) => {
+const Register = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,10 +13,10 @@ const Register = ({ setIsRegistered }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("i am submitting");
-    const token = await registerUser(username, password);
-    console.log(token);
-    localStorage.setItem("token", token);
-    setIsRegistered(true)
+    const registerInfo = await registerUser(username, password);
+    console.log(registerInfo);
+    localStorage.setItem("token", registerInfo.token);
+    setIsLoggedIn(true)
     setUsername("");
     setPassword("");
   };
@@ -55,6 +55,9 @@ const Register = ({ setIsRegistered }) => {
     </div>
       <button type="submit">Submit</button>
     </form>
+
+    <div><p>we'll need to display the appropriate error message if we get one back from the API call... or the "youre signed up!" if we get that</p>
+    <p>maybe also get a handle on the "isRegistered" ternary stuff</p></div>
     </div>
 
   );

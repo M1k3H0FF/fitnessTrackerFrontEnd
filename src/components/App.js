@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
-import { Activities, Header, Login, Register, Routines, Userbar, Welcome } from "./";
+import { Activities, Header, Login, MyRoutines, Register, Routines, Userbar, Welcome, NewActivities } from "./";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,22 +18,24 @@ const App = () => {
   return (
     <div>
       <Header />
-      {isLoggedIn || isRegistered && token ? (
+      {isLoggedIn || token ? (
         <Userbar
           setIsLoggedIn={setIsLoggedIn}
-          setisRegistered={setIsRegistered}
         />
       ) : null}
       <Routes>
         <Route path={"/"} element={<Welcome />} />;
-        <Route path={"/login"} element={<Login />} />;
+        <Route path={"/login"} element={<Login setIsLoggedIn={setIsLoggedIn} />} />;
         <Route
           path={"/register"}
-          element={<Register setIsRegistered={setIsRegistered} />}
+          element={<Register setIsLoggedIn={setIsLoggedIn} />}
         />
         ;
         <Route path={"/activities"} element={<Activities />} />;
         <Route path={"/routines"} element={<Routines />} />;
+        <Route path={"/myroutines"} element={<MyRoutines />} />;
+        <Route path={"/newactivities"} element={<NewActivities />} />;
+        
       </Routes>
     </div>
   );

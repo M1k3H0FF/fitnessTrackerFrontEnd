@@ -5,9 +5,16 @@ import { fetchAllRoutines } from "../api";
 
 const Activities = () =>{
 
-    return(
-        <div><h1>Here's the Public Activities Page</h1></div>
-    )
+  
+return(
+        
+    
+        <div>
+            <h1>Here's the Public Activities Page</h1>
+        </div>
+
+  
+    );
 };
 
 export default Activities;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-// import { loginUser } from "../api";
+import { loginUser } from "../api";
 
 const Login = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -9,9 +9,9 @@ const Login = ({ setIsLoggedIn }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("i am submitting");
-    const token = await loginUser (username, password);
-    console.log(token);
-    localStorage.setItem("token", token);
+    const loginInfo = await loginUser (username, password);
+    console.log(loginInfo);
+    localStorage.setItem("token", loginInfo.token);
     setIsLoggedIn(true)
     setUsername("");
     setPassword("");
@@ -19,7 +19,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <div className="logAndRegUser">
-        <br></br>
+   
     <form className="logIn" onSubmit={handleSubmit}>
       <div>
           <label>
@@ -51,6 +51,9 @@ const Login = ({ setIsLoggedIn }) => {
     </div>
     <button type="submit">Submit</button>
     </form>
+ 
+    <div><p>we'll need to display the appropriate error message if we get one back from the API call... or the "youre signed up!" if we get that</p>
+    <p>maybe also get a handle on the "isLoggedIn" ternary stuff</p></div>
     </div>
   );
 };
