@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;500;600;700&family=Poppins:wght@400;500&family=Raleway:wght@100&display=swap');
+
+.userRoutine{
+    border: 2px solid black;
+    margin: 5px;
+    padding-left: 5px;
+    width: 48%;
+    font-family: Montserrat;
+    font-weight: 400;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-family: Poppins;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #000220;
+    align-items: flex-end;
+    gap: 10px;  
+}
+
+.bigboy{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.goal{
+    font-style: italic;
+}
+a:link {
+    color: white;
+    text-decoration: none
+}
+
+a:visited {
+    color: white;
+    text-decoration: none
+}
+
+
+#navbar {
+    display: flex;
+    column-gap: 10px;
+}
+
+.logIn {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    font-family: Poppins;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #DCDCDC;
+    align-items: baseline;
+    gap: 5px;  
+}
+
+.logAndRegUser {
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    background-color: #DCDCDC;
+}
+
+.userbar {
+    display: flex;
+    justify-content: right;
+    background-color: #FF5349;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    gap: 15px;
+
+}
