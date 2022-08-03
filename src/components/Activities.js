@@ -24,6 +24,7 @@ const [allActivities, setAllActivities] = useState([]);
           <div className="userRoutine" key={index}>
             <h2 className="bigboy">{activityName}</h2>
             <div className="goal">{activityDescription}</div>
+            <button>Update Activity</button>
           </div>
         );
       });
