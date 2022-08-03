@@ -5,7 +5,6 @@ import { Activities, Header, Login, MyRoutines, Register, Routines, Userbar, Wel
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
   const [token, setToken] = useState("");
   useEffect(() => {
     const checktoken = localStorage.getItem("token");
