@@ -54,9 +54,7 @@ const Login = ({ setIsLoggedIn }) => {
     </div>
     <button type="submit">Submit</button>
     </form>
- 
-    <div><p>we'll need to display the appropriate error message if we get one back from the API call... or the "youre signed up!" if we get that</p>
-    <p>maybe also get a handle on the "isLoggedIn" ternary stuff</p></div>
+
     </div>
   );
 };
