@@ -31,8 +31,7 @@ const NewActivities = () =>{
 
     return(
       <div>
-        <div><h1>Here's the New Activities Page</h1></div>
-        <div>we need a new activities form here</div>
+        <div><h1>Make a New Activity!</h1></div>
 
         <div>
             <form onSubmit={handleSubmit}>

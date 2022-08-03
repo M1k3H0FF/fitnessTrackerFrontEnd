@@ -3,8 +3,34 @@ import { useNavigate } from "react-router-dom";
 import { fetchAllRoutines } from "../api";
 
 const MyRoutines = () => {
-
   const [allRoutines, setAllRoutines] = useState([]);
+  const [name, setName] = useState('');
+  const [goal, setGoal] = useState('');
+
+  const handleOnChange =(event) => {
+    const changed = event.target.id
+    if (changed === 'name'){
+        setRoutineName(event.target.value)
+        console.log(name, 'name')
+    }
+    if (changed === 'goal') {
+        setGoal(event.target.value)
+        console.log(goal, "goal")
+    }
+};
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    const activityInfo = await makeNewActivity(name, description);
+    if(activityInfo && activityInfo.message){
+        alert(activityInfo.message)
+    }
+    setName("");
+    setDescription("");
+};
+
+  
+  
   useEffect(() => {
     fetchAllRoutines()
       .then((routines) => {
@@ -28,18 +54,19 @@ const MyRoutines = () => {
     });
     console.log(routineActivity, "line29");
     return (
-      <div className="userRoutine" key={index}>
-        <h2 className="bigboy">{routineName}</h2>
-        <div className="goal">{routineGoal}</div>
-        <p>
-          <b>Created By:</b>
-          {routineCreatorName}
-        </p>
-        <p>
-          <b>Activity:</b>
-          {displayActivities}
-        </p>
-      </div>
+        <div className="userRoutine" key={index}>
+          <h2 className="bigboy">{routineName}</h2>
+          <div className="goal">{routineGoal}</div>
+          <p>
+            <b>Created By:</b>
+            {routineCreatorName}
+          </p>
+          <p>
+            <b>Activity:</b>
+            {displayActivities}
+          </p>
+        </div>
+
     );
   });
 
@@ -64,7 +91,29 @@ const MyRoutines = () => {
 </li>
     <li>be able to remove any activity from the routine
 </li>
-    
+<form onSubmit={handleSubmit}>
+                <div>
+                <label>Name: </label>
+                <input 
+                    id='name'
+                    onChange={handleOnChange}
+                    placeholder="whatcha up to?"
+                    value={name}
+                />
+                </div>
+               
+                <div>
+                  <label>Goal:  </label>
+                <input
+                    id='goal'
+                    onChange={handleOnChange}
+                    placeholder="why?"
+                    value={goal}
+                />   
+                </div>
+               <button type="submit">CREATE ROUTINE</button>
+            </form>
+
 
   </div>
   );
