@@ -1,11 +1,31 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllActivities } from "../api";
+import { getAllActivities, updateActivity} from "../api";
 
 
 const Activities = () =>{
 const [allActivities, setAllActivities] = useState([]);
+const [name, setName] = useState('')
+const [description, setDescription] = useState('')
+const handleOnChange =(event) => {
+  const changed = event.target.id
+  if (changed === 'name'){
+      setName(event.target.value)
+      console.log(name, 'name')
+  }
+  if (changed === 'description') {
+      setDescription(event.target.value)
+      console.log(description, "description")
+  }
+};
 
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const act_ID = event.target.dataset.activity
+  updateActivity(name, description, act_ID);
+  setName("");
+  setDescription('');
+};
     useEffect(() => {
         getAllActivities()
           .then((activities) => {
@@ -24,7 +44,32 @@ const [allActivities, setAllActivities] = useState([]);
           <div className="userRoutine" key={index}>
             <h2 className="bigboy">{activityName}</h2>
             <div className="goal">{activityDescription}</div>
-            <button>Update Activity</button>
+            <span>
+      <form onSubmit={handleSubmit} data-activity={activity.id}>
+        <label htmlFor="updateActivity">Update Activity:</label>
+        <input onChange={handleOnChange}
+          className="updateName"
+          type="text"
+          required
+          name="message"
+          placeholder={activityName}
+        />
+         <input onChange={handleOnChange}
+          className="updateDescriptioin"
+          type="text"
+          required
+          name="message"
+          placeholder={activityDescription}
+        />
+        <button name="Submit" type="submit">
+          Update
+        </button>
+      </form>
+      <button
+      >
+        Back
+      </button>
+    </span>
           </div>
         );
       });
