@@ -10,6 +10,9 @@ const Login = ({ setIsLoggedIn }) => {
     event.preventDefault();
     console.log("i am submitting");
     const loginInfo = await loginUser (username, password);
+    if(loginInfo && loginInfo.message){
+        alert(loginInfo.message)
+    }
     console.log(loginInfo);
     localStorage.setItem("token", loginInfo.token);
     setIsLoggedIn(true)
