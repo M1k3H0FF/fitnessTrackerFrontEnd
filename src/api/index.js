@@ -114,7 +114,7 @@ export async function updateActivity(name, description, act_ID){
     }
   }
 
-  export async function updateRoutine(name, goal, routineID){
+export async function updateRoutine(name, goal, routineID){
     try{
       const token = localStorage.getItem("token")
       const response = await fetch(`${BASE_URL}api/routines/${routineID}`, {
@@ -130,11 +130,35 @@ export async function updateActivity(name, description, act_ID){
 });
   const result = await response.json()
   return result
-    } catch error {
+    } catch (error) {
       console.log(error, "your updateRoutine is breaking")
     }
 
-  }
+}
+
+export async function makeNewRoutine(name, goal){
+  try{
+  const token = localStorage.getItem("token")
+  const response = await fetch(`${BASE_URL}api/routines`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      name: name,
+      goal: goal,
+      isPublic: true
+    })
+  })
+    const result = await response.json();
+    return result
+
+  } catch (error) {
+
+    }
+};
+
 
 
 // demo code from previous project need to update

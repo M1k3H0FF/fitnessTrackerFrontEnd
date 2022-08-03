@@ -68,6 +68,12 @@ a:visited {
     background-color: #DCDCDC;
 }
 
+.inspiration {
+    font-family: Poppins;
+    font-size: larger;
+    font-weight: bolder;
+}
+
 .userbar {
     display: flex;
     justify-content: right;

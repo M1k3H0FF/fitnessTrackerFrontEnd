@@ -1,17 +1,17 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAllRoutines, updateRoutine } from "../api";
+import { fetchAllRoutines, makeNewRoutine } from "../api";
 
 const MyRoutines = () => {
   const [allRoutines, setAllRoutines] = useState([]);
-  const [name, setName] = useState('');
+  const [routineName, setRoutineName] = useState('');
   const [goal, setGoal] = useState('');
 
   const handleOnChange =(event) => {
-    const changed = event.target.name
+    const changed = event.target.id
     if (changed == 'name'){
         setRoutineName(event.target.value)
-        console.log(name, 'name')
+        console.log(routineName, 'name')
     }
     if (changed == 'goal') {
         setGoal(event.target.value)
@@ -21,12 +21,12 @@ const MyRoutines = () => {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
-    const routineInfo = await updateRoutine(name, goal, routineID);
-    if(activityInfo && activityInfo.message){
-        alert(activityInfo.message)
+    const routineInfo = await makeNewRoutine(routineName, goal);
+    if(routineInfo){
+        alert("NEW ROUTINE CREATED!")
     }
-    setName("");
-    setDescription("");
+    setRoutineName("");
+    setGoal("");
 };
 
   
@@ -52,7 +52,6 @@ const handleSubmit = async (event) => {
     const displayActivities = routineActivity.map((activity) => {
       return <li>{activity.name}</li>;
     });
-    console.log(routineActivity, "line29");
     return (
         <div className="userRoutine" key={index}>
           <h2 className="bigboy">{routineName}</h2>
@@ -73,6 +72,29 @@ const handleSubmit = async (event) => {
 
   return (
   <div>
+    <div className="inspiration">Try Something New</div>
+    <form onSubmit={handleSubmit}>
+                <div>
+                <label>Name: </label>
+                <input 
+                    id='name'
+                    onChange={handleOnChange}
+                    placeholder="whatcha up to?"
+                    value={routineName}
+                />
+                </div>
+               
+                <div>
+                  <label>Goal:  </label>
+                <input
+                    id='goal'
+                    onChange={handleOnChange}
+                    placeholder="why?"
+                    value={goal}
+                />   
+                </div>
+               <button type="submit">CREATE ROUTINE</button>
+</form>
     
     As a registered user on the My Routines tab, I want to:
     <li>be shown a form to create a new routine</li>
@@ -91,28 +113,7 @@ const handleSubmit = async (event) => {
 </li>
     <li>be able to remove any activity from the routine
 </li>
-<form onSubmit={handleSubmit}>
-                <div>
-                <label>Name: </label>
-                <input 
-                    name='name'
-                    onChange={handleOnChange}
-                    placeholder="whatcha up to?"
-                    value={name}
-                />
-                </div>
-               
-                <div>
-                  <label>Goal:  </label>
-                <input
-                    name='goal'
-                    onChange={handleOnChange}
-                    placeholder="why?"
-                    value={goal}
-                />   
-                </div>
-               <button type="submit">CREATE ROUTINE</button>
-            </form>
+
 
 
   </div>
