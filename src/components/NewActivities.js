@@ -36,6 +36,7 @@ const NewActivities = () =>{
                 <div>
                 <label>Name: </label>
                 <input 
+                    id='name'
                     onChange={handleOnChange}
                     placeholder="whatcha up to?"
                     value={name}
@@ -45,6 +46,7 @@ const NewActivities = () =>{
                 <div>
                   <label>Description:  </label>
                 <input
+                    id='description'
                     onChange={handleOnChange}
                     placeholder="what's that?"
                     value={description}

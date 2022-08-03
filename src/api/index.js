@@ -59,9 +59,13 @@ export async function makeNewActivity(name, description){
   const token = localStorage.getItem("token")
   const response = await fetch(`${BASE_URL}api/activities`, {
     method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
     body: JSON.stringify({
-      name: 'Running',
-      description: 'Keep on running!'
+      name: name,
+      description: description
     })
   })
     const result = await response.json();
@@ -70,22 +74,22 @@ export async function makeNewActivity(name, description){
   } catch (error) {
 
     }
-  };
+};
 
-  export async function GetAllActivities () {
-    try{ 
-      const response = await fetch(`{BASE_URL}api/activities`, {
+export async function getAllActivities () {
+  try{ 
+  const response = await fetch(`${BASE_URL}api/activities`, {
   headers: {
     'Content-Type': 'application/json',
   },
-}) 
-const result = await response.json()
-return result;
-  } catch (error){
-    throw error;
-  }
+  }) 
+  const result = await response.json()
+  return result;
+    } catch (error){
+      console.error(error, "your getAllActivities function is breaking");
+    }
  
-  }
+}
 
 
 

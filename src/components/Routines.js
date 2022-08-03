@@ -4,6 +4,7 @@ import { fetchAllRoutines } from "../api";
 
 function Routines() {
   const [allRoutines, setAllRoutines] = useState([]);
+  
   useEffect(() => {
     fetchAllRoutines()
       .then((routines) => {

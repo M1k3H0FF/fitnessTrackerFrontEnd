@@ -19,7 +19,7 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <div className="logAndRegUser">
-   
+   <p>TODAY, YOUR FITNESS JOURNEY CONTINUES!</p>
     <form className="logIn" onSubmit={handleSubmit}>
       <div>
           <label>
