@@ -114,5 +114,21 @@ export async function updateActivity(name, description, act_ID){
     }
   }
 
+  export async function updateRoutine(name, goal, routineID){
+    try{
+      const response = await fetch(`${BASE_URL}api/routines/${routineID}`, {
+  method: "PATCH",
+  body: JSON.stringify({
+    name: name,
+    goal: goal
+  })
+}) const result = await response.json()
+  return result
+    } catch error {
+      console.log(error, "your updateRoutine is breaking")
+    }
+
+  }
+
 
 // demo code from previous project need to update
