@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
-import { Activities, Header, Login, MyRoutines, Register, Routines, Userbar, Welcome, NewActivities } from "./";
+import { Activities, Header, Login, MyRoutines, Register, Routines, Userbar, Welcome, NewActivities, UpdateRoutine } from "./";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,6 +34,7 @@ const App = () => {
         <Route path={"/routines"} element={<Routines />} />;
         <Route path={"/myroutines"} element={<MyRoutines />} />;
         <Route path={"/newactivities"} element={<NewActivities />} />;
+    
         
       </Routes>
     </div>
