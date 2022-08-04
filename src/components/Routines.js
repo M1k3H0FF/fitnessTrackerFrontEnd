@@ -25,7 +25,7 @@ function Routines() {
     let routineCreatorName = routine.creatorName;
 
     const displayActivities = routineActivity.map((activity) => {
-      return <li>{activity.name}</li>;
+      return  <li>({activity.count}x) {activity.name}: {activity.description}</li>  
     });
    
     return (
@@ -33,7 +33,7 @@ function Routines() {
         <h2 className="bigboy">{routineName}</h2>
         <div className="goal">{routineGoal}</div>
         <p>
-          <b>Created By:</b>
+          <b>Created By: </b>
           {routineCreatorName}
         </p>
         <p>

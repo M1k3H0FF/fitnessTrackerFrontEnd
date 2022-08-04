@@ -191,4 +191,22 @@ export async function getRoutinesByUsername(username){
 
 }
 
+export async function deleteRoutine (routineId) {
+  try{
+    const token = localStorage.getItem("token")
+    const response = await fetch(`${BASE_URL}api/routines/${routineId}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    }) 
+    const result = await response.json()
+    return result
+
+  }catch (error) {
+    console.error
+  }
+}
+
 // demo code from previous project need to update

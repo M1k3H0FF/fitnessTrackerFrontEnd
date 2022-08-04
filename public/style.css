@@ -93,3 +93,19 @@ a:visited {
     align-items: baseline;
    
 }
+
+.userRoutineOptions{
+    display: flex;
+    padding: 3px;
+    padding-left: 5px;
+    gap: 5px;
+    background-color: #219ebc;
+}
+
+.inspiration2 {
+    font-family: Poppins;
+    font-size:16pt;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #decA57;
+}
