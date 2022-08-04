@@ -159,6 +159,36 @@ export async function makeNewRoutine(name, goal){
     }
 };
 
+export async function getUserInfo(token){
+  try{
+  const token = localStorage.getItem("token")
+  const response = await fetch(`${BASE_URL}api/users/me`, {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
+})
+  const result = await response.json()
+  return result
+} catch (error){
+  console.log(error, "your getUserInfo function is breaking")
+  }
+}
 
+export async function getRoutinesByUsername(username){
+  try{
+    const response = await fetch(`${BASE_URL}api/users/${username}/routines`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const result = await response.json()
+    return result
+
+  }catch (error){
+    console.error
+  }
+
+}
 
 // demo code from previous project need to update
