@@ -93,8 +93,8 @@ export async function getAllActivities() {
 }
 export async function updateActivity(name, description, act_ID){
   try{
-    console.log(act_ID, 'line 95')
     const token = localStorage.getItem("token")
+    console.log(act_ID, 'line 95')
     const response = await fetch(`${BASE_URL}api/activities/${act_ID}`,
      {
     method: "PATCH",
