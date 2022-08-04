@@ -209,4 +209,25 @@ export async function deleteRoutine (routineId) {
   }
 }
 
+export async function attachActivityToRoutine (routineID, actId, count, duration) {
+  try {
+    const response = await fetch(`${BASE_URL}api/routines/${routineID}/activities`, {
+      method: "POST",
+      body: JSON.stringify({
+        activityId: actId,
+        count: count, 
+        duration: duration
+      })
+    })
+    const result = await response.json()
+    return result
+     
+  } catch(error){
+    console.error
+  }
+
+
+}
+
+
 // demo code from previous project need to update
