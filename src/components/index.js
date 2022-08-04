@@ -9,3 +9,4 @@ export { default as Welcome } from "./Welcome";
 export { default as MyRoutines } from "./MyRoutines";
 export { default as NewActivities } from "./NewActivities";
 export { default as Delete } from "./Delete";
+export { default as UpdateRoutine} from "./UpdateRoutine"
