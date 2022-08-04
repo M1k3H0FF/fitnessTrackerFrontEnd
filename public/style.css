@@ -81,5 +81,31 @@ a:visited {
     font-family: 'Raleway', sans-serif;
     padding: 5px;
     gap: 15px;
+}
 
+.ubMaster {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FF5349;
+    color: #f5f5f5;
+    font-family: Poppins;
+    padding-left: 8px;
+    align-items: baseline;
+   
+}
+
+.userRoutineOptions{
+    display: flex;
+    padding: 3px;
+    padding-left: 5px;
+    gap: 5px;
+    background-color: #219ebc;
+}
+
+.inspiration2 {
+    font-family: Poppins;
+    font-size:16pt;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #decA57;
 }

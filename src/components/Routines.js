@@ -15,7 +15,7 @@ function Routines() {
       });
   }, []);
 
-  //   console.log(allRoutines, "line 19");
+ 
   const displayRoutines = allRoutines.map((routine, index) => {
     let routineId = routine.id;
     let routineActivity = routine.activities;
@@ -23,17 +23,17 @@ function Routines() {
     let routineGoal = routine.goal;
     let routineCreatorId = routine.creatorId;
     let routineCreatorName = routine.creatorName;
-    //   console.log(routineActivity, 'line 26')
+
     const displayActivities = routineActivity.map((activity) => {
-      return <li>{activity.name}</li>;
+      return  <li>({activity.count}x) {activity.name}: {activity.description}</li>  
     });
-    console.log(routineActivity, "line29");
+   
     return (
       <div className="userRoutine" key={index}>
         <h2 className="bigboy">{routineName}</h2>
         <div className="goal">{routineGoal}</div>
         <p>
-          <b>Created By:</b>
+          <b>Created By: </b>
           {routineCreatorName}
         </p>
         <p>
