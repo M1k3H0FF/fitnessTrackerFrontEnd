@@ -78,7 +78,6 @@ const Activities = () => {
               Update
             </button>
           </form>
-          <button>Back</button>
         </span>
       </div>
     );
