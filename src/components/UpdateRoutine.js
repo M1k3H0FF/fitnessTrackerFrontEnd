@@ -1,23 +1,16 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { getAllActivities } from "../api";
-import { attachActivityToRoutine } from "../api";
+import { getAllActivities,updateRoutine, attachActivityToRoutine } from "../api";
 
 const UpdateRoutine = ({ routineData, setIsShown }) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
   const [allActivities, setAllActivities] = useState([]);
-  console.log(allActivities, 'line 10')
   return (
     <div>
       <form onSubmit>
-        <label htmlFor="updateRoutine">Update Name:</label>
+        <label htmlFor="updateRoutine">Update Routine:</label>
         <input />
-        <button type="submit">Submit</button>
-      </form>
-      <form onSubmit>
-        <label htmlFor="updateGoal">Update Goal:</label>
-        <input></input>
         <button type="submit">Submit</button>
       </form>
         
@@ -30,7 +23,6 @@ const UpdateRoutine = ({ routineData, setIsShown }) => {
             name="activity"
             id="selectActivity"
             value={activity}
-           
             onChange={(event) => setAllActivities(event.target.value)}
           > 
             {getAllActivities.map((activity, idx) => (
