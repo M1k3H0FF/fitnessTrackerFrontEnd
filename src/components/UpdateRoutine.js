@@ -6,41 +6,52 @@ const UpdateRoutine = ({ routineData, setIsShown }) => {
     setValue(event.target.value);
   };
   const [allActivities, setAllActivities] = useState([]);
+
+  useEffect(()=>{
+    async function helpGetAllActivities(){
+      const activities = await getAllActivities()
+      setAllActivities(activities); 
+    }
+    helpGetAllActivities()}, []
+
+  )
+  console.log(allActivities, "hello hello")
   return (
     <div>
-      <form onSubmit>
+      {/* <form onSubmit>
         <label htmlFor="updateRoutine">Update Routine:</label>
         <input />
         <button type="submit">Submit</button>
-      </form>
+      </form> */}
         
       <form onSubmit="handleSubmit">
-        <fieldset>
+       
           <label htmlFor="selectActivity">
-            Activity <span className="selectActivity">({allActivities})</span>
+            Activity
           </label>
           <select
             name="activity"
             id="selectActivity"
-            value={activity}
+            value={0}
             onChange={(event) => setAllActivities(event.target.value)}
           > 
-            {getAllActivities.map((activity, idx) => (
+            {allActivities.map((activity, idx) => (
               <option key={`${idx}:${activity.name}`} value={activity.name}>
                 {activity.name}
               </option>
             ))}
           </select>
-        </fieldset>
-        <button type="submit">Search</button>
-      </form>
-      <button
+   
+        <button type="submit">tack it on</button>
+        <button
         onClick={(event) => {
           setIsShown(false);
         }}
       >
         Nevermind
       </button>
+      </form>
+
     </div>
   );
 };

@@ -98,7 +98,7 @@ const MyRoutines = () => {
                     setRoutineData(routine);
                   }}
                 >
-                  Update Routine
+                  Add Activity to Routine
                 </button>
 
                 <button
@@ -121,8 +121,8 @@ const MyRoutines = () => {
                   ) : null}
                 </div>
                 <div>
-                  {isShown && clickID === `${routine.id}` ? (
-                    <UpdateRoutine routineData={routineData} setIsShown={setIsShown}/>
+                  {isShown && (clickID === `${routine.id}`) ? (
+                  <UpdateRoutine routineData={routineData} setIsShown={setIsShown}/>
                   ): null}
                 </div>
               </div>
