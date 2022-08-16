@@ -7,6 +7,16 @@
     width: 48%;
     font-family: Montserrat;
     font-weight: 400;
+    background-color: whitesmoke;
+}
+
+.masterGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+
 }
 
 .header {
@@ -108,4 +118,41 @@ a:visited {
     font-weight: bolder;
     text-transform: uppercase;
     background-color: #decA57;
+}
+.inspiration3 {
+    font-family: Poppins;
+    font-size:24pt;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #decA57;
+    padding-left: 10px;
+}
+.inspiration4 {
+    font-family: Poppins;
+    font-size:24pt;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: #decA57;
+    text-align: center;
+}
+
+.innerHeading {
+    background-color:#B6D0e2 ;
+    text-transform: uppercase;
+    padding-left: 10px;
+}
+
+/* .activityGrid{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-auto-flow: row;
+        margin: 5px;
+} */
+
+body {
+    background-color: #e1c699;
+}
+
+img {
+    border: 2px solid black;
 }

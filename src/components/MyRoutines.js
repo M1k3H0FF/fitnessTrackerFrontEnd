@@ -166,7 +166,7 @@ const MyRoutines = () => {
       <div className="inspiration2">
         Success is obedience to a structured way of life.
       </div>
-      {myRoutines.length > 0 ? MappedRoutines : null}
+      <div className="masterGrid">{myRoutines.length > 0 ? MappedRoutines : null}</div>
     </div>
   );
 };
