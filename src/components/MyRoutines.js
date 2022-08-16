@@ -98,7 +98,7 @@ const MyRoutines = () => {
                     setRoutineData(routine);
                   }}
                 >
-                  Update Routine
+                  Add Activity to Routine
                 </button>
 
                 <button
@@ -121,8 +121,8 @@ const MyRoutines = () => {
                   ) : null}
                 </div>
                 <div>
-                  {isShown && clickID === `${routine.id}` ? (
-                    <UpdateRoutine routineData={routineData} setIsShown={setIsShown}/>
+                  {isShown && (clickID === `${routine.id}`) ? (
+                  <UpdateRoutine routineData={routineData} setIsShown={setIsShown}/>
                   ): null}
                 </div>
               </div>
@@ -166,7 +166,7 @@ const MyRoutines = () => {
       <div className="inspiration2">
         Success is obedience to a structured way of life.
       </div>
-      {myRoutines.length > 0 ? MappedRoutines : null}
+      <div className="masterGrid">{myRoutines.length > 0 ? MappedRoutines : null}</div>
     </div>
   );
 };

@@ -57,7 +57,9 @@ const Activities = () => {
         <div className="goal">{activityDescription}</div>
         <span>
           <form onSubmit={handleSubmit} data-activity={activity.id}>
-            <label htmlFor="updateActivity">Update Activity:</label>
+            <div className="innerHeading"><label htmlFor="updateActivity">Update Activity:</label></div>
+            <div>
+              <label>New Name: </label>
             <input
               onChange={handleOnChange}
               className="updateName"
@@ -66,6 +68,9 @@ const Activities = () => {
               name="name"
               placeholder={activityName}
             />
+            </div>
+            <div>
+            <label>New Description: </label>
             <input
               onChange={handleOnChange}
               className="updateDescriptioin"
@@ -74,9 +79,11 @@ const Activities = () => {
               name="description"
               placeholder={activityDescription}
             />
-            <button name="Submit" type="submit">
+            <div>   <button name="Submit" type="submit">
               Update
-            </button>
+            </button></div>
+         
+            </div>
           </form>
         </span>
       </div>
@@ -85,10 +92,10 @@ const Activities = () => {
 
   return (
     <div>
-      <div>
-        <h1>Here's the Public Activities Page</h1>
+      <div className = "inspiration3">
+        Public Activities
       </div>
-      <div>{displayActivities}</div>
+      <div className="masterGrid">{displayActivities}</div>
     </div>
   );
 };

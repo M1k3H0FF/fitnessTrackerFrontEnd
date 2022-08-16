@@ -209,14 +209,19 @@ export async function deleteRoutine (routineId) {
   }
 }
 
-export async function attachActivityToRoutine (routineID, actId, count, duration) {
+export async function attachActivityToRoutine (routineID, activityId, count, duration) {
   try {
+    const token = localStorage.getItem("token")
     const response = await fetch(`${BASE_URL}api/routines/${routineID}/activities`, {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
       body: JSON.stringify({
-        activityId: actId,
-        count: count, 
-        duration: duration
+        activityId,
+        count, 
+        duration
       })
     })
     const result = await response.json()

@@ -29,23 +29,22 @@ function Routines() {
     });
    
     return (
+      // <div className="masterGrid">
       <div className="userRoutine" key={index}>
         <h2 className="bigboy">{routineName}</h2>
-        <div className="goal">{routineGoal}</div>
+        <div className="goal"><b>Goal: </b>{routineGoal}</div>
         <p>
           <b>Created By: </b>
           {routineCreatorName}
         </p>
         <p>
-          <b>Activity:</b>
+          <b>Activities:</b>
           {displayActivities}
         </p>
-        <p><b>Goal:</b>
-            {routineGoal}
-        </p>
       </div>
+      // </div>
     );
   });
-  return <div>{displayRoutines}</div>;
+  return <div className="masterGrid">{displayRoutines}</div>;
 }
 export default Routines;
