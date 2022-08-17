@@ -45,6 +45,14 @@ function Routines() {
       // </div>
     );
   });
-  return <div className="masterGrid">{displayRoutines}</div>;
+  return (
+    <div>
+        <div className = "inspiration3">
+        All the Routines
+      </div>
+      <div className="masterGrid">{displayRoutines}</div>;
+    </div>
+  
+  )
 }
 export default Routines;
