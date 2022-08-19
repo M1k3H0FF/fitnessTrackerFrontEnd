@@ -122,7 +122,7 @@ const MyRoutines = () => {
                 </div>
                 <div>
                   {isShown && (clickID === `${routine.id}`) ? (
-                  <UpdateRoutine routineData={routineData} setIsShown={setIsShown}/>
+                  <UpdateRoutine routineData={routineData} setIsShown={setIsShown} myRoutines={myRoutines} setMyRoutines={setMyRoutines}/>
                   ): null}
                 </div>
               </div>

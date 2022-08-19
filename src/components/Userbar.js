@@ -17,7 +17,7 @@ const Userbar = ({ setIsLoggedIn }) => {
   function logOut() {
     setIsLoggedIn(false);
     localStorage.clear("token");
-    window.location.reload(true);
+  
   }
 
   return (
